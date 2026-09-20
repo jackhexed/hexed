@@ -67,7 +67,7 @@
     wget
     git
 
-    firefox
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.umbriel.enable = true;

@@ -35,7 +35,7 @@
     enable = true;
     package = pkgs.umbriel;
     settings = {
-      output.eDP-1.scale = 1.25;
+      output.eDP-1.scale = 1.5;
       general.autostart = [ "noctalia" ];
       layout.gap = 5;
       input.keyboard.layout = "us";
