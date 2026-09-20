@@ -7,8 +7,8 @@
 
   programs.git = {
     enable = true;
-    user.name = "jackhexed";
-    user.email = "jackhexed@gmail.com";
+    userName = "jackhexed";
+    userEmail = "jackhexed@gmail.com";
   };
 
   programs.alacritty.enable = true;
