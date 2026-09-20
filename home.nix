@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.umbriel.homeModules.default
+  ];
+
   home.username = "jackhexed";
   home.homeDirectory = "/home/jackhexed";
   home.stateVersion = "26.05";
@@ -29,6 +33,7 @@
 
   programs.umbriel = {
     enable = true;
+    package = pkgs.umbriel;
     settings = {
       general.autostart = [ "noctalia" ];
       layout.gap = 5;
@@ -37,7 +42,7 @@
         "Mod+Q" = "window-close";
         "Mod" = "spawn:noctalia msg panel-toggle launcher";
 
-        "Mod+T" = "spawn:alacritty";
+        "Mod+Return" = "spawn:alacritty";
         "Mod+B" = "spawn:firefox";
       };
     };
