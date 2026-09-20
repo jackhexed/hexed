@@ -15,7 +15,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -68,12 +67,28 @@
     wget
     git
 
-    niri
-    noctalia
-
-    alacritty
     firefox
   ];
+
+  # Compositor at the system level: registers the niri session with the display
+  # manager, ships the niri systemd user units, and wires up xdg portals,
+  # polkit and pipewire. Per-user config lives in home.nix.
+  programs.niri.enable = true;
+
+  # Log in straight into a niri session. niri-session is what starts
+  # graphical-session.target, which is what pulls in noctalia's user service.
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+      user = "greeter";
+    };
+  };
+
+  # Backends noctalia's bar widgets talk to.
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
