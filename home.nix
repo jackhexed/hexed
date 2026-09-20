@@ -40,6 +40,6 @@
         "Mod+T" = "spawn:alacritty";
         "Mod+B" = "spawn:firefox";
       };
-    }
+    };
   };
 }
