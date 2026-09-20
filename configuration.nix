@@ -70,20 +70,8 @@
     firefox
   ];
 
-  # Compositor at the system level: registers the niri session with the display
-  # manager, ships the niri systemd user units, and wires up xdg portals,
-  # polkit and pipewire. Per-user config lives in home.nix.
-  programs.niri.enable = true;
-
-  # Log in straight into a niri session. niri-session is what starts
-  # graphical-session.target, which is what pulls in noctalia's user service.
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
-      user = "greeter";
-    };
-  };
+  programs.umbriel.enable = true;
+  services.displayManager.noctalia-greeter.enable = true;
 
   # Backends noctalia's bar widgets talk to.
   services.upower.enable = true;
