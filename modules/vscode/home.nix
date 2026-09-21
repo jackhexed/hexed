@@ -8,6 +8,6 @@
   programs.vscode.mutableExtensionsDir = true;
   programs.vscode.profiles.Default.mutableUserSettings = true;
   programs.vscode.argvSettings = {
-    # "password-store" = "gnome-libsecret";
+    "password-store" = "gnome-libsecret";
   };
 }
