@@ -11,11 +11,4 @@
     ../../modules/zen-browser/home.nix
     ../../modules/vscode/home.nix
   ];
-
-  services.gnome-keyring.enable = true;
-  services.gnome-keyring.components = [ "secrets" ];
-
-  home.packages = with pkgs; [
-    seahorse
-  ];
 }
