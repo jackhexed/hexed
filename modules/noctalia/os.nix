@@ -1,6 +1,13 @@
-{ ... }:
+{ 
+  pkgs,
+  ...
+}:
 
 {
+  environment.systemPackages = with pkgs; [
+    xwayland-satellite
+  ];
+
   programs.umbriel.enable = true;
 
   services.displayManager.noctalia-greeter.enable = true;

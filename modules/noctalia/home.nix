@@ -16,6 +16,7 @@
   programs.umbriel = {
     enable = true;
     settings = {
+      general.xwayland = true;
       general.autostart = [ "noctalia" ];
       layout.gap = 5;
       input.keyboard.layout = "us";
