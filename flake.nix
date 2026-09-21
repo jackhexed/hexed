@@ -20,5 +20,5 @@
     };
   };
 
-  outputs = import ./outputs.nix;
+  outputs = inputs: import ./outputs.nix inputs;
 }
