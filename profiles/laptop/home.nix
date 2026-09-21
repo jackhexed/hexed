@@ -1,4 +1,7 @@
-{ ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -11,4 +14,8 @@
 
   services.gnome-keyring.enable = true;
   services.gnome-keyring.components = [ "secrets" ];
+
+  home.packages = with pkgs; [
+    seahorse
+  ];
 }
